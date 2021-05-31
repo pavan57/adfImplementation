@@ -1,0 +1,9 @@
+{
+	"name": "myazuredf-implementation",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "a1fc583a-87f2-44d9-b451-c53bcc42d2b9",
+		"tenantId": "2078a1b5-a4b7-4726-beaf-cdc3ca074ef6"
+	}
+}
