@@ -38,7 +38,7 @@
 		"parameters": {
 			"waitTimeInSeconds": {
 				"type": "int",
-				"defaultValue": 15
+				"defaultValue": 10
 			},
 			"waitOverMessage": {
 				"type": "string",
