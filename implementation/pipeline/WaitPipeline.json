@@ -1,0 +1,55 @@
+{
+	"name": "WaitPipeline",
+	"properties": {
+		"activities": [
+			{
+				"name": "Wait for some seconds",
+				"type": "Wait",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"waitTimeInSeconds": {
+						"value": "@pipeline().parameters.waitTimeInSeconds",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "Set variable1",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "Wait for some seconds",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "waitOutput",
+					"value": {
+						"value": "@pipeline().parameters.waitOverMessage",
+						"type": "Expression"
+					}
+				}
+			}
+		],
+		"parameters": {
+			"waitTimeInSeconds": {
+				"type": "int",
+				"defaultValue": 15
+			},
+			"waitOverMessage": {
+				"type": "string",
+				"defaultValue": "wait is over"
+			}
+		},
+		"variables": {
+			"waitOutput": {
+				"type": "String"
+			}
+		},
+		"annotations": []
+	}
+}
