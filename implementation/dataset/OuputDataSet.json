@@ -5,12 +5,20 @@
 			"referenceName": "AzureDataLakeStorage_LS",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"ImageFolderName": {
+				"type": "string"
+			}
+		},
 		"annotations": [],
 		"type": "Binary",
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"folderPath": "inputTextFiles",
+				"folderPath": {
+					"value": "@dataset().ImageFolderName",
+					"type": "Expression"
+				},
 				"fileSystem": "mycontainer108"
 			}
 		}
